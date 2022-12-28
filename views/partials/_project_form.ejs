@@ -1,0 +1,92 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn m-auto btn-success"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Create New Project
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create a new project</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form
+        class="border border-light border-3"
+        action="/project/create"
+        method="POST"
+      >
+        <div class="row mb-3 m-auto">
+          <label for="namelabel" class="col-sm-4 col-form-label">Name</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name of your project"
+              required
+              class="form-control"
+              id="namelabel"
+            />
+          </div>
+        </div>
+        <div class="row mb-3 m-auto">
+          <label for="inputPassword3" class="col-sm-4 col-form-label"
+            >Description</label
+          >
+          <div class="col-sm-8">
+            <textarea
+              name="description"
+              placeholder="Write something about your project..."
+              required
+              class="form-control"
+              id="inputPassword3"
+              style="height: 100px"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row mb-3 m-auto">
+          <label for="authorlabel" class="col-sm-4 col-form-label"
+            >Author</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              required
+              class="form-control"
+              id="authorlabel"
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Create project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

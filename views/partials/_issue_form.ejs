@@ -1,0 +1,163 @@
+<!-- this partial contains a form to create issues in the project -->
+<!-- Button trigger modal -->
+<div class="text-end">
+  <button
+    type="button"
+    class="btn m-auto btn-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    New Issue
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create a Issue</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form
+        class="border border-light border-3"
+        action="/project/<%=project._id%>"
+        method="POST"
+      >
+        <div class="row mb-3 m-auto">
+          <label for="titlelabel" class="col-sm-4 col-form-label">Title</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              required
+              class="form-control"
+              id="titlelabel"
+            />
+          </div>
+        </div>
+        <div class="row mb-3 m-auto">
+          <label for="descriptionlabel" class="col-sm-4 col-form-label"
+            >Description</label
+          >
+          <div class="col-sm-8">
+            <textarea
+              name="description"
+              placeholder="Describe your issue..."
+              required
+              class="form-control"
+              id="descriptionlabel"
+              style="height: 100px"
+            ></textarea>
+          </div>
+        </div>
+
+        <% if (project.labels.length>0) { %>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Labels
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <% for( let label of project.labels) { %>
+            <li><a class="dropdown-item" href="#"><%= label %></a></li>
+            <% } %>
+          </ul>
+        </div>
+        <% } %>
+        <div class="row mb-3 m-auto">
+          <label for="labels" class="col-sm-4 col-form-label">Add Labels</label>
+
+          <div class="col-sm-8">
+            <input
+              class="form-check-input"
+              name="labels"
+              type="checkbox"
+              value="Bug"
+              id="bug"
+            />
+            <label class="form-check-label" for="bug"> Bug </label><br /><input
+              name="labels"
+              class="form-check-input"
+              type="checkbox"
+              value="UI Improvement"
+              id="ui-improvement"
+            />
+            <label class="form-check-label" for="ui-improvement">
+              UI Improvement </label
+            ><br /><input
+              name="labels"
+              class="form-check-input"
+              type="checkbox"
+              value="Documentation"
+              id="documentation"
+            />
+            <label class="form-check-label" for="documentation">
+              Documentation </label
+            ><br /><input
+              name="labels"
+              class="form-check-input"
+              type="checkbox"
+              value="Enhancement"
+              id="enhancement"
+            />
+            <label class="form-check-label" for="enhancement">
+              Enhancement </label
+            ><br /><input
+              name="labels"
+              class="form-check-input"
+              type="checkbox"
+              value="Duplicate"
+              id="duplicate"
+            />
+            <label class="form-check-label" for="duplicate"> Duplicate </label>
+          </div>
+        </div>
+        <div class="row mb-3 m-auto">
+          <label for="authorlabel" class="col-sm-4 col-form-label"
+            >Author</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              required
+              class="form-control"
+              id="authorlabel"
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Create New Issue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
