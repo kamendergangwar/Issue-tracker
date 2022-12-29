@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 let DB_URL = process.env.DB_URL;
 
 //connect to the database
-mongoose.connect(DB_URL);
+//mongoose.connect(DB_URL);
+mongoose.connect("mongodb://localhost:27017/Issue-Tracker";);
 // acquire connection (to check if its successful)
 const db = mongoose.connection;
 
