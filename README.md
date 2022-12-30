@@ -26,4 +26,5 @@ https://github.com/kamendergangwar/Issue-tracker.git
 -Used Bootstrap for neat UI.
 
 # Hosted URL
-
+Project already deployed on Render.com. 
+Visit:https://issue-tracker-c3xv.onrender.com/
